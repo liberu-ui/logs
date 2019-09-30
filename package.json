@@ -1,0 +1,41 @@
+{
+  "name": "@enso-ui/logs",
+  "version": "1.0.2",
+  "description": "Basic logs package",
+  "main": "src/bulma/pages/logs/Index.vue",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enso-ui/logs.git"
+  },
+  "keywords": [
+    "logs",
+    "vue"
+  ],
+  "author": "Adrian Ocneanu <aocneanu@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/enso-ui/logs/issues"
+  },
+  "homepage": "https://github.com/enso-ui/logs#readme",
+  "devDependencies": {
+    "@vue/eslint-config-airbnb": "^4.0.0",
+    "babel-eslint": "^10.0.1",
+    "cross-env": "^5.1.6",
+    "eslint": "^5.0.1",
+    "eslint-plugin-vue": "^5.0.0",
+    "laravel-mix": "3.0.0",
+    "node-sass": "^4.11.0",
+    "webpack-cli": "^3.2.1"
+  },
+  "dependencies": {
+    "@enso-ui/ui": "^2.0.3",
+    "@enso-ui/bulma": "~2.0.0",
+    "@enso-ui/directives": "~1.0.1",
+    "@fortawesome/free-solid-svg-icons": "^5.2.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.2",
+    "vue": "^2.5.16"
+  }
+}
