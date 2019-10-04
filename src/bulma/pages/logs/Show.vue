@@ -50,7 +50,7 @@ import { faCloudDownloadAlt, faTrashAlt } from '@fortawesome/free-solid-svg-icon
 import {
     Card, CardHeader, CardRefresh, CardRemove, CardControl, CardContent,
 } from '@enso-ui/card/bulma';
-import { Confirmation } from '@enso-ui/confirmation/bulma';
+import Confirmation from '@enso-ui/confirmation/bulma';
 import { hljs } from '@enso-ui/directives';
 import formatDistance from '@enso-ui/ui/src/modules/plugins/date-fns/formatDistance';
 
