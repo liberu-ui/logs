@@ -74,7 +74,7 @@ import {
 import {
     Card, CardHeader, CardContent, CardControl, CardRefresh, CardCollapse,
 } from '@enso-ui/card/bulma';
-import { Confirmation } from '@enso-ui/confirmation/bulma';
+import Confirmation from '@enso-ui/confirmation/bulma';
 import formatDistance from '@enso-ui/ui/src/modules/plugins/date-fns/formatDistance';
 
 library.add(faTerminal, faEye, faCloudDownloadAlt, faTrashAlt, faSyncAlt);
