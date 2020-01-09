@@ -1,6 +1,6 @@
 {
   "name": "@enso-ui/logs",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Basic logs package",
   "main": "src/bulma/pages/logs/Index.vue",
   "scripts": {
