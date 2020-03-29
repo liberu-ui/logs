@@ -17,7 +17,7 @@
                     <template v-slot:controls>
                         <card-control
                             v-if="log.visible">
-                            <span class="icon is-small has-text-success"
+                            <span class="icon is-small is-naked"
                                 @click="$router.push({
                                     name: 'system.logs.show',
                                     params: { log: log.name }
@@ -26,7 +26,7 @@
                             </span>
                         </card-control>
                         <card-control>
-                            <a class="icon is-small has-text-info"
+                            <a class="icon is-small is-naked"
                                 :href="route('system.logs.download', log.name)">
                                 <fa icon="cloud-download-alt"/>
                             </a>
@@ -34,7 +34,7 @@
                         <card-control>
                             <confirmation placement="bottom"
                                 @confirm="empty(log)">
-                                <span class="icon is-small has-text-danger">
+                                <span class="icon is-small is-naked">
                                     <fa icon="trash-alt"/>
                                 </span>
                             </confirmation>
