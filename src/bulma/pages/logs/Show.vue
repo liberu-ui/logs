@@ -59,7 +59,7 @@ library.add(faCloudDownloadAlt, faTrashAlt);
 export default {
     name: 'Show',
 
-    inject: ['errorHandler', 'i18n', 'route'],
+    inject: ['errorHandler', 'i18n', 'route', 'toastr'],
 
     directives: { hljs },
 
@@ -86,7 +86,7 @@ export default {
         empty() {
             axios.delete(this.route('system.logs.destroy', this.log.name)).then(({ data }) => {
                 this.log = data.log;
-                this.$toastr.success(data.message);
+                this.toastr.success(data.message);
             }).catch(this.errorHandler);
         },
         timeFromNow(date) {
