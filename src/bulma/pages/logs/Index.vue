@@ -82,7 +82,7 @@ library.add(faTerminal, faEye, faCloudDownloadAlt, faTrashAlt, faSyncAlt);
 export default {
     name: 'Index',
 
-    inject: ['errorHandler', 'i18n', 'route'],
+    inject: ['errorHandler', 'i18n', 'route', 'toastr'],
 
     components: {
         Card, CardHeader, CardContent, CardControl, CardRefresh, CardCollapse, Confirmation,
@@ -115,7 +115,7 @@ export default {
             axios.delete(this.route('system.logs.destroy', log.name)).then(({ data }) => {
                 const index = this.logs.findIndex(item => log.name === item.name);
                 this.logs.splice(index, 1, data.log);
-                this.$toastr.success(data.message);
+                this.toastr.success(data.message);
             }).catch(this.errorHandler);
         },
         timeFromNow(date) {
