@@ -43,7 +43,7 @@
                         <card-collapse/>
                     </template>
                 </card-header>
-                <card-content class="has-padding-large">
+                <card-content class="p-3">
                     <p>
                         <span>{{ i18n("Last updated") }}</span>
                         <span class="is-pulled-right">
@@ -60,7 +60,7 @@
             </card>
         </div>
     </div>
-    <p class="subtitle is-4 has-text-centered has-margin-top-large"
+    <p class="subtitle is-4 has-text-centered mt-3"
         v-else>
         {{ i18n('No log files available') }}
     </p>
@@ -113,7 +113,7 @@ export default {
         },
         empty(log) {
             axios.delete(this.route('system.logs.destroy', log.name)).then(({ data }) => {
-                const index = this.logs.findIndex(item => log.name === item.name);
+                const index = this.logs.findIndex((item) => log.name === item.name);
                 this.logs.splice(index, 1, data.log);
                 this.toastr.success(data.message);
             }).catch(this.errorHandler);
