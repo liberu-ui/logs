@@ -1,6 +1,7 @@
 <template>
     <card class="is-rounded raises-on-hover"
-        @remove="$router.push({ name: 'system.logs.index' })"
+        @remove="$router.push({ name: 'system.logs.index' })
+            .catch(routerErrorHandler)"
         v-if="log">
         <card-header class="has-background-light">
             <template v-slot:title>
@@ -59,7 +60,7 @@ library.add(faCloudDownloadAlt, faTrashAlt);
 export default {
     name: 'Show',
 
-    inject: ['errorHandler', 'i18n', 'route', 'toastr'],
+    inject: ['errorHandler', 'i18n', 'route', 'routerErrorHandler', 'toastr'],
 
     directives: { hljs },
 

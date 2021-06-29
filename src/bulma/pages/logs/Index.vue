@@ -21,7 +21,7 @@
                                 @click="$router.push({
                                     name: 'system.logs.show',
                                     params: { log: log.name }
-                                })">
+                                }).catch(routerErrorHandler)">
                                 <fa icon="eye"/>
                             </span>
                         </card-control>
@@ -82,7 +82,7 @@ library.add(faTerminal, faEye, faCloudDownloadAlt, faTrashAlt, faSyncAlt);
 export default {
     name: 'Index',
 
-    inject: ['errorHandler', 'i18n', 'route', 'toastr'],
+    inject: ['errorHandler', 'i18n', 'route', 'routerErrorHandler', 'toastr'],
 
     components: {
         Card, CardHeader, CardContent, CardControl, CardRefresh, CardCollapse, Confirmation,
