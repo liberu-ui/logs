@@ -4,7 +4,7 @@
             .catch(routerErrorHandler)"
         v-if="log">
         <card-header class="has-background-light">
-            <template v-slot:title>
+            <template #:title>
                 <p>
                     {{ i18n('The log file') }}
                     <code>{{ log.name }}</code>
@@ -14,7 +14,7 @@
                     {{ i18n('Current file size is') }} {{ log.size }} {{ i18n('MB') }}
                 </p>
             </template>
-            <template v-slot:controls>
+            <template #:controls>
                 <card-control>
                     <a class="icon is-small has-text-info"
                         :href="route('system.logs.download', log.name)">
@@ -60,13 +60,13 @@ library.add(faCloudDownloadAlt, faTrashAlt);
 export default {
     name: 'Show',
 
-    inject: ['errorHandler', 'i18n', 'route', 'routerErrorHandler', 'toastr'],
-
     directives: { hljs },
 
     components: {
         Card, CardHeader, CardRefresh, CardRemove, CardControl, CardContent, Confirmation,
     },
+
+    inject: ['errorHandler', 'i18n', 'route', 'routerErrorHandler', 'toastr'],
 
     data: () => ({
         log: null,

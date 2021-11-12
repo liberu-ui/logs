@@ -11,10 +11,10 @@
                     <span class="icon is small">
                         <fa :icon="icon"/>
                     </span>
-                    <template v-slot:title>
+                    <template #:title>
                         {{ log.name }}
                     </template>
-                    <template v-slot:controls>
+                    <template #:controls>
                         <card-control
                             v-if="log.visible">
                             <span class="icon is-small is-naked"
@@ -82,11 +82,11 @@ library.add(faTerminal, faEye, faCloudDownloadAlt, faTrashAlt, faSyncAlt);
 export default {
     name: 'Index',
 
-    inject: ['errorHandler', 'i18n', 'route', 'routerErrorHandler', 'toastr'],
-
     components: {
         Card, CardHeader, CardContent, CardControl, CardRefresh, CardCollapse, Confirmation,
     },
+
+    inject: ['errorHandler', 'i18n', 'route', 'routerErrorHandler', 'toastr'],
 
     data: () => ({
         logs: [],
