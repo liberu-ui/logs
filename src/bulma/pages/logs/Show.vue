@@ -4,7 +4,7 @@
             .catch(routerErrorHandler)"
         v-if="log">
         <card-header class="has-background-light">
-            <template #:title>
+            <template #title>
                 <p>
                     {{ i18n('The log file') }}
                     <code>{{ log.name }}</code>
@@ -14,7 +14,7 @@
                     {{ i18n('Current file size is') }} {{ log.size }} {{ i18n('MB') }}
                 </p>
             </template>
-            <template #:controls>
+            <template #controls>
                 <card-control>
                     <a class="icon is-small has-text-info"
                         :href="route('system.logs.download', log.name)">

@@ -11,10 +11,10 @@
                     <span class="icon is small">
                         <fa :icon="icon"/>
                     </span>
-                    <template #:title>
+                    <template #title>
                         {{ log.name }}
                     </template>
-                    <template #:controls>
+                    <template #controls>
                         <card-control
                             v-if="log.visible">
                             <span class="icon is-small is-naked"
