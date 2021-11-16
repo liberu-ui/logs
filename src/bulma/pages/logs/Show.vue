@@ -46,6 +46,7 @@
 </template>
 
 <script>
+import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faCloudDownloadAlt, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import {
@@ -63,7 +64,14 @@ export default {
     directives: { hljs },
 
     components: {
-        Card, CardHeader, CardRefresh, CardRemove, CardControl, CardContent, Confirmation,
+        Card,
+        CardHeader,
+        CardRefresh,
+        CardRemove,
+        CardControl,
+        CardContent,
+        Confirmation,
+        Fa,
     },
 
     inject: ['errorHandler', 'i18n', 'route', 'routerErrorHandler', 'toastr'],

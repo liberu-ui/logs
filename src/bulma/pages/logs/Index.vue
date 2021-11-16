@@ -67,6 +67,7 @@
 </template>
 
 <script>
+import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
     faTerminal, faEye, faCloudDownloadAlt, faTrashAlt, faSyncAlt,
@@ -83,7 +84,14 @@ export default {
     name: 'Index',
 
     components: {
-        Card, CardHeader, CardContent, CardControl, CardRefresh, CardCollapse, Confirmation,
+        Card,
+        CardHeader,
+        CardContent,
+        CardControl,
+        CardRefresh,
+        CardCollapse,
+        Confirmation,
+        Fa,
     },
 
     inject: ['errorHandler', 'i18n', 'route', 'routerErrorHandler', 'toastr'],
