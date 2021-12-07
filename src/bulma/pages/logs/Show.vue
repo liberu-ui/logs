@@ -1,7 +1,5 @@
 <template>
     <card class="is-rounded raises-on-hover"
-        @remove="$router.push({ name: 'system.logs.index' })
-            .catch(routerErrorHandler)"
         v-if="log">
         <card-header class="has-background-light">
             <template #title>
@@ -30,7 +28,6 @@
                     </confirmation>
                 </card-control>
                 <card-refresh @refresh="fetch()"/>
-                <card-remove/>
             </template>
         </card-header>
         <card-content class="is-paddingless"
@@ -50,7 +47,7 @@ import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faCloudDownloadAlt, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import {
-    Card, CardHeader, CardRefresh, CardRemove, CardControl, CardContent,
+    Card, CardHeader, CardRefresh, CardControl, CardContent,
 } from '@enso-ui/card/bulma';
 import Confirmation from '@enso-ui/confirmation/bulma';
 import { hljs } from '@enso-ui/directives';
@@ -67,14 +64,13 @@ export default {
         Card,
         CardHeader,
         CardRefresh,
-        CardRemove,
         CardControl,
         CardContent,
         Confirmation,
         Fa,
     },
 
-    inject: ['errorHandler', 'i18n', 'route', 'routerErrorHandler', 'toastr'],
+    inject: ['errorHandler', 'i18n', 'route', 'toastr'],
 
     data: () => ({
         log: null,

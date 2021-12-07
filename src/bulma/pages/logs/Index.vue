@@ -114,17 +114,19 @@ export default {
     methods: {
         fetch() {
             this.loading = true;
-            axios.get(this.route('system.logs.index')).then(({ data }) => {
-                this.logs = data;
-                this.loading = false;
-            }).catch(this.errorHandler);
+            axios.get(this.route('system.logs.index'))
+                .then(({ data }) => {
+                    this.logs = data;
+                    this.loading = false;
+                }).catch(this.errorHandler);
         },
         empty(log) {
-            axios.delete(this.route('system.logs.destroy', log.name)).then(({ data }) => {
-                const index = this.logs.findIndex((item) => log.name === item.name);
-                this.logs.splice(index, 1, data.log);
-                this.toastr.success(data.message);
-            }).catch(this.errorHandler);
+            axios.delete(this.route('system.logs.destroy', log.name))
+                .then(({ data }) => {
+                    const index = this.logs.findIndex((item) => log.name === item.name);
+                    this.logs.splice(index, 1, data.log);
+                    this.toastr.success(data.message);
+                }).catch(this.errorHandler);
         },
         timeFromNow(date) {
             return formatDistance(date);
