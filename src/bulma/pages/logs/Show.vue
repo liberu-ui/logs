@@ -70,7 +70,7 @@ export default {
         Fa,
     },
 
-    inject: ['errorHandler', 'i18n', 'route', 'toastr'],
+    inject: ['errorHandler', 'http', 'i18n', 'route', 'toastr'],
 
     data: () => ({
         log: null,
@@ -83,13 +83,13 @@ export default {
 
     methods: {
         fetch() {
-            axios.get(this.route('system.logs.show', this.$route.params.log))
+            this.http.get(this.route('system.logs.show', this.$route.params.log))
                 .then(({ data }) => {
                     this.log = data;
                 }).catch(this.errorHandler);
         },
         empty() {
-            axios.delete(this.route('system.logs.destroy', this.log.name)).then(({ data }) => {
+            this.http.delete(this.route('system.logs.destroy', this.log.name)).then(({ data }) => {
                 this.log = data.log;
                 this.toastr.success(data.message);
             }).catch(this.errorHandler);

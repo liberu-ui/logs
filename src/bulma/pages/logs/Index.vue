@@ -94,7 +94,9 @@ export default {
         Fa,
     },
 
-    inject: ['errorHandler', 'i18n', 'route', 'routerErrorHandler', 'toastr'],
+    inject: [
+        'errorHandler', 'http', 'i18n', 'route', 'routerErrorHandler', 'toastr',
+    ],
 
     data: () => ({
         logs: [],
@@ -114,14 +116,14 @@ export default {
     methods: {
         fetch() {
             this.loading = true;
-            axios.get(this.route('system.logs.index'))
+            this.http.get(this.route('system.logs.index'))
                 .then(({ data }) => {
                     this.logs = data;
                     this.loading = false;
                 }).catch(this.errorHandler);
         },
         empty(log) {
-            axios.delete(this.route('system.logs.destroy', log.name))
+            this.http.delete(this.route('system.logs.destroy', log.name))
                 .then(({ data }) => {
                     const index = this.logs.findIndex((item) => log.name === item.name);
                     this.logs.splice(index, 1, data.log);
