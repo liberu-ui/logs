@@ -11,10 +11,10 @@
                     <span class="icon is small">
                         <fa :icon="icon"/>
                     </span>
-                    <template v-slot:title>
+                    <template #title>
                         {{ log.name }}
                     </template>
-                    <template v-slot:controls>
+                    <template #controls>
                         <card-control
                             v-if="log.visible">
                             <span class="icon is-small is-naked"
@@ -67,6 +67,7 @@
 </template>
 
 <script>
+import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
     faTerminal, faEye, faCloudDownloadAlt, faTrashAlt, faSyncAlt,
@@ -82,11 +83,20 @@ library.add(faTerminal, faEye, faCloudDownloadAlt, faTrashAlt, faSyncAlt);
 export default {
     name: 'Index',
 
-    inject: ['errorHandler', 'i18n', 'route', 'routerErrorHandler', 'toastr'],
-
     components: {
-        Card, CardHeader, CardContent, CardControl, CardRefresh, CardCollapse, Confirmation,
+        Card,
+        CardHeader,
+        CardContent,
+        CardControl,
+        CardRefresh,
+        CardCollapse,
+        Confirmation,
+        Fa,
     },
+
+    inject: [
+        'errorHandler', 'http', 'i18n', 'route', 'routerErrorHandler', 'toastr',
+    ],
 
     data: () => ({
         logs: [],
@@ -106,17 +116,19 @@ export default {
     methods: {
         fetch() {
             this.loading = true;
-            axios.get(this.route('system.logs.index')).then(({ data }) => {
-                this.logs = data;
-                this.loading = false;
-            }).catch(this.errorHandler);
+            this.http.get(this.route('system.logs.index'))
+                .then(({ data }) => {
+                    this.logs = data;
+                    this.loading = false;
+                }).catch(this.errorHandler);
         },
         empty(log) {
-            axios.delete(this.route('system.logs.destroy', log.name)).then(({ data }) => {
-                const index = this.logs.findIndex((item) => log.name === item.name);
-                this.logs.splice(index, 1, data.log);
-                this.toastr.success(data.message);
-            }).catch(this.errorHandler);
+            this.http.delete(this.route('system.logs.destroy', log.name))
+                .then(({ data }) => {
+                    const index = this.logs.findIndex(item => log.name === item.name);
+                    this.logs.splice(index, 1, data.log);
+                    this.toastr.success(data.message);
+                }).catch(this.errorHandler);
         },
         timeFromNow(date) {
             return formatDistance(date);

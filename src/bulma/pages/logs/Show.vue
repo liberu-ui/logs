@@ -1,10 +1,8 @@
 <template>
     <card class="is-rounded raises-on-hover"
-        @remove="$router.push({ name: 'system.logs.index' })
-            .catch(routerErrorHandler)"
         v-if="log">
         <card-header class="has-background-light">
-            <template v-slot:title>
+            <template #title>
                 <p>
                     {{ i18n('The log file') }}
                     <code>{{ log.name }}</code>
@@ -14,7 +12,7 @@
                     {{ i18n('Current file size is') }} {{ log.size }} {{ i18n('MB') }}
                 </p>
             </template>
-            <template v-slot:controls>
+            <template #controls>
                 <card-control>
                     <a class="icon is-small has-text-info"
                         :href="route('system.logs.download', log.name)">
@@ -30,7 +28,6 @@
                     </confirmation>
                 </card-control>
                 <card-refresh @refresh="fetch()"/>
-                <card-remove/>
             </template>
         </card-header>
         <card-content class="is-paddingless"
@@ -46,10 +43,11 @@
 </template>
 
 <script>
+import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faCloudDownloadAlt, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import {
-    Card, CardHeader, CardRefresh, CardRemove, CardControl, CardContent,
+    Card, CardHeader, CardRefresh, CardControl, CardContent,
 } from '@enso-ui/card/bulma';
 import Confirmation from '@enso-ui/confirmation/bulma';
 import { hljs } from '@enso-ui/directives';
@@ -60,13 +58,19 @@ library.add(faCloudDownloadAlt, faTrashAlt);
 export default {
     name: 'Show',
 
-    inject: ['errorHandler', 'i18n', 'route', 'routerErrorHandler', 'toastr'],
-
     directives: { hljs },
 
     components: {
-        Card, CardHeader, CardRefresh, CardRemove, CardControl, CardContent, Confirmation,
+        Card,
+        CardHeader,
+        CardRefresh,
+        CardControl,
+        CardContent,
+        Confirmation,
+        Fa,
     },
+
+    inject: ['errorHandler', 'http', 'i18n', 'route', 'toastr'],
 
     data: () => ({
         log: null,
@@ -79,13 +83,13 @@ export default {
 
     methods: {
         fetch() {
-            axios.get(this.route('system.logs.show', this.$route.params.log))
+            this.http.get(this.route('system.logs.show', this.$route.params.log))
                 .then(({ data }) => {
                     this.log = data;
                 }).catch(this.errorHandler);
         },
         empty() {
-            axios.delete(this.route('system.logs.destroy', this.log.name)).then(({ data }) => {
+            this.http.delete(this.route('system.logs.destroy', this.log.name)).then(({ data }) => {
                 this.log = data.log;
                 this.toastr.success(data.message);
             }).catch(this.errorHandler);
