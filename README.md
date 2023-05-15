@@ -7,7 +7,7 @@
 ![npm version](https://img.shields.io/npm/v/@enso-ui/logs.svg) 
 
 ## Usage
-The component cannot be used outside of the Enso ecosystem.
+The component cannot be used outside of the Liberu ecosystem.
 
 ### Demo
 
@@ -26,7 +26,7 @@ yarn add @enso-ui/logs
 
 are welcome. Pull requests are great, but issues are good too.
 
-Thank you to all the people who already contributed to Enso!
+Thank you to all the people who already contributed to Liberu!
 
 ## License
 
