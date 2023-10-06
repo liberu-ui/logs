@@ -1,6 +1,6 @@
 {
   "name": "@liberu-ui/logs",
-  "version": "5.0.4",
+  "version": "5.0.5",
   "description": "Basic logs package",
   "main": "src/bulma/pages/logs/Index.vue",
   "scripts": {
