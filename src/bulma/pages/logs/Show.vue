@@ -48,10 +48,10 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faCloudDownloadAlt, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import {
     Card, CardHeader, CardRefresh, CardControl, CardContent,
-} from '@enso-ui/card/bulma';
-import Confirmation from '@enso-ui/confirmation/bulma';
-import { hljs } from '@enso-ui/directives';
-import formatDistance from '@enso-ui/ui/src/modules/plugins/date-fns/formatDistance';
+} from '@liberu-ui/card/bulma';
+import Confirmation from '@liberu-ui/confirmation/bulma';
+import { hljs } from '@liberu-ui/directives';
+import formatDistance from '@liberu-ui/ui/src/modules/plugins/date-fns/formatDistance';
 
 library.add(faCloudDownloadAlt, faTrashAlt);
 

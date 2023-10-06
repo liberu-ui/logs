@@ -1,10 +1,10 @@
 # Logs
 
-![npm license](https://img.shields.io/npm/l/@enso-ui/logs.svg) 
-![npm download](https://img.shields.io/npm/dm/@enso-ui/logs.svg) 
-![GitHub top language](https://img.shields.io/github/languages/top/enso-ui/logs.svg) 
-![GitHub issues](https://img.shields.io/github/issues/enso-ui/logs.svg) 
-![npm version](https://img.shields.io/npm/v/@enso-ui/logs.svg) 
+![npm license](https://img.shields.io/npm/l/@liberu-ui/logs.svg) 
+![npm download](https://img.shields.io/npm/dm/@liberu-ui/logs.svg) 
+![GitHub top language](https://img.shields.io/github/languages/top/liberu-ui/logs.svg) 
+![GitHub issues](https://img.shields.io/github/issues/liberu-ui/logs.svg) 
+![npm version](https://img.shields.io/npm/v/@liberu-ui/logs.svg) 
 
 ## Usage
 The component cannot be used outside of the Liberu ecosystem.
@@ -19,7 +19,7 @@ Check the full documentation at  [docs.laravel-enso.com](https://docs.laravel-en
 
 Install the package:
 ```
-yarn add @enso-ui/logs
+yarn add @liberu-ui/logs
 ```
 
 ## Contributions
