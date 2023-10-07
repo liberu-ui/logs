@@ -101,7 +101,7 @@ export default {
 };
 </script>
 
-<style src="highlight.js/styles/atom-one-light.css"></style>
+<style src="highlight.ts/styles/atom-one-light.css"></style>
 
 <style lang="scss">
     pre.log {
